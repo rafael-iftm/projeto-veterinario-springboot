@@ -1,0 +1,38 @@
+{
+  "id": "test-cadastro-veterinario",
+  "version": "2.0",
+  "name": "Cadastro Veterinário",
+  "tests": [
+    {
+      "id": "test-cadastro",
+      "name": "Cadastrar Veterinário",
+      "commands": [
+        {
+          "id": "open",
+          "target": "http://localhost:8080/cadastrar-veterinario",
+          "value": ""
+        },
+        {
+          "id": "type",
+          "target": "id=nome",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "type",
+          "target": "id=especialidade",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "click",
+          "target": "id=salvar",
+          "value": ""
+        },
+        {
+          "id": "assertText",
+          "target": "id=mensagem-sucesso",
+          "value": "Veterinário cadastrado com sucesso!"
+        }
+      ]
+    }
+  ]
+}
