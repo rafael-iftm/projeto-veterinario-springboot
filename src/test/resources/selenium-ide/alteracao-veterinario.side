@@ -1,0 +1,138 @@
+{
+  "id": "project-id",
+  "name": "GerenciadorVeterinariosTest",
+  "url": "http://localhost:8080",
+  "tests": [
+    {
+      "id": "test-excluir-veterinario",
+      "name": "Test Excluir Veterinário",
+      "commands": [
+        {
+          "id": "1",
+          "comment": "Cadastro do veterinário",
+          "command": "open",
+          "target": "/form"
+        },
+        {
+          "id": "2",
+          "command": "type",
+          "target": "css=#nome",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "3",
+          "command": "type",
+          "target": "css=#inputEmail",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "4",
+          "command": "type",
+          "target": "css=#inputEspecialidade",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "5",
+          "command": "type",
+          "target": "css=#inputSalario",
+          "value": "1000"
+        },
+        {
+          "id": "6",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "7",
+          "comment": "Verificação na página inicial",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "8",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "9",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "10",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "11",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
+        },
+        {
+          "id": "12",
+          "comment": "Edição do veterinário",
+          "command": "click",
+          "target": "xpath=//tr/td[span[contains(text(),'Dr. John Doe')]]/following-sibling::td/child::a[1]"
+        },
+        {
+          "id": "13",
+          "command": "type",
+          "target": "css=#nome",
+          "value": "Dr. John Doe Edited"
+        },
+        {
+          "id": "14",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "15",
+          "comment": "Verificação após edição",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "16",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe Edited"
+        },
+        {
+          "id": "17",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "18",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "19",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-id",
+      "name": "Suite de Testes Veterinários",
+      "tests": [
+        "test-excluir-veterinario"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:8080"
+  ],
+  "plugins": []
+}

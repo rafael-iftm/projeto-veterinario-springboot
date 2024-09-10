@@ -1,0 +1,147 @@
+{
+  "id": "project-listagem-veterinario",
+  "name": "ListagemVeterinarioTest",
+  "url": "http://localhost:8080",
+  "tests": [
+    {
+      "id": "test-listagem-veterinario",
+      "name": "Test Listar Veterinário",
+      "commands": [
+        {
+          "id": "1",
+          "comment": "Navega para a página de cadastro",
+          "command": "open",
+          "target": "/form"
+        },
+        {
+          "id": "2",
+          "comment": "Preenche o nome do veterinário",
+          "command": "type",
+          "target": "css=#nome",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "3",
+          "comment": "Preenche o e-mail do veterinário",
+          "command": "type",
+          "target": "css=#inputEmail",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "4",
+          "comment": "Preenche a especialidade do veterinário",
+          "command": "type",
+          "target": "css=#inputEspecialidade",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "5",
+          "comment": "Preenche o salário do veterinário",
+          "command": "type",
+          "target": "css=#inputSalario",
+          "value": "1000"
+        },
+        {
+          "id": "6",
+          "comment": "Clica no botão de cadastrar",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "7",
+          "comment": "Navega para a página inicial para verificar o cadastro",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "8",
+          "comment": "Verifica se o nome está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "9",
+          "comment": "Verifica se o e-mail está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "10",
+          "comment": "Verifica se a especialidade está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "11",
+          "comment": "Verifica se o salário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
+        },
+        {
+          "id": "12",
+          "comment": "Navega para a página de consulta de veterinário",
+          "command": "open",
+          "target": "/find"
+        },
+        {
+          "id": "13",
+          "comment": "Preenche o nome do veterinário para consulta",
+          "command": "type",
+          "target": "css=#nome",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "14",
+          "comment": "Clica no botão de consultar",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "15",
+          "comment": "Verifica se o nome está presente na tabela após consulta",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "16",
+          "comment": "Verifica se o e-mail está presente na tabela após consulta",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "17",
+          "comment": "Verifica se a especialidade está presente na tabela após consulta",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "18",
+          "comment": "Verifica se o salário está presente na tabela após consulta",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-listagem-veterinario",
+      "name": "Suite Listagem Veterinário",
+      "tests": [
+        "test-listagem-veterinario"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:8080"
+  ],
+  "plugins": []
+}

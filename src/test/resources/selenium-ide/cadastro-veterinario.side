@@ -1,38 +1,100 @@
 {
-  "id": "test-cadastro-veterinario",
-  "version": "2.0",
-  "name": "Cadastro Veterinário",
+  "id": "project-id",
+  "name": "CadastroVeterinarioTest",
+  "url": "http://localhost:8080",
   "tests": [
     {
-      "id": "test-cadastro",
-      "name": "Cadastrar Veterinário",
+      "id": "test-cadastrar-veterinario",
+      "name": "Test Cadastrar Veterinário",
       "commands": [
         {
-          "id": "open",
-          "target": "http://localhost:8080/cadastrar-veterinario",
-          "value": ""
+          "id": "1",
+          "comment": "Navega para a página de cadastro",
+          "command": "open",
+          "target": "/form"
         },
         {
-          "id": "type",
-          "target": "id=nome",
+          "id": "2",
+          "comment": "Preenche o nome do veterinário",
+          "command": "type",
+          "target": "css=#nome",
           "value": "Dr. John Doe"
         },
         {
-          "id": "type",
-          "target": "id=especialidade",
+          "id": "3",
+          "comment": "Preenche o e-mail do veterinário",
+          "command": "type",
+          "target": "css=#inputEmail",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "4",
+          "comment": "Preenche a especialidade do veterinário",
+          "command": "type",
+          "target": "css=#inputEspecialidade",
           "value": "Cardiologia"
         },
         {
-          "id": "click",
-          "target": "id=salvar",
-          "value": ""
+          "id": "5",
+          "comment": "Preenche o salário do veterinário",
+          "command": "type",
+          "target": "css=#inputSalario",
+          "value": "1000"
         },
         {
-          "id": "assertText",
-          "target": "id=mensagem-sucesso",
-          "value": "Veterinário cadastrado com sucesso!"
+          "id": "6",
+          "comment": "Clica no botão de cadastrar",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "7",
+          "comment": "Verifica se foi redirecionado para a página inicial",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "8",
+          "comment": "Verifica se o nome está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "9",
+          "comment": "Verifica se o email está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "10",
+          "comment": "Verifica se a especialidade está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "11",
+          "comment": "Verifica se o salário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
         }
       ]
     }
-  ]
+  ],
+  "suites": [
+    {
+      "id": "suite-id",
+      "name": "Suite de Teste Cadastro Veterinário",
+      "tests": [
+        "test-cadastrar-veterinario"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:8080"
+  ],
+  "plugins": []
 }

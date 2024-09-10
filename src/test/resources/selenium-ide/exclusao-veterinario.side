@@ -1,0 +1,119 @@
+{
+  "id": "project-id",
+  "name": "ExclusaoVeterinarioTest",
+  "url": "http://localhost:8080",
+  "tests": [
+    {
+      "id": "test-excluir-veterinario",
+      "name": "Test Excluir Veterinário",
+      "commands": [
+        {
+          "id": "1",
+          "comment": "Navega para a página de cadastro",
+          "command": "open",
+          "target": "/form"
+        },
+        {
+          "id": "2",
+          "comment": "Preenche o nome do veterinário",
+          "command": "type",
+          "target": "css=#nome",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "3",
+          "comment": "Preenche o e-mail do veterinário",
+          "command": "type",
+          "target": "css=#inputEmail",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "4",
+          "comment": "Preenche a especialidade do veterinário",
+          "command": "type",
+          "target": "css=#inputEspecialidade",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "5",
+          "comment": "Preenche o salário do veterinário",
+          "command": "type",
+          "target": "css=#inputSalario",
+          "value": "1000"
+        },
+        {
+          "id": "6",
+          "comment": "Clica no botão de cadastrar",
+          "command": "click",
+          "target": "css=button[type='submit']"
+        },
+        {
+          "id": "7",
+          "comment": "Navega para a página inicial para verificar se o veterinário foi cadastrado",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "8",
+          "comment": "Verifica se o nome do veterinário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        },
+        {
+          "id": "9",
+          "comment": "Verifica se o e-mail do veterinário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "DrJohnDoe@cardiologia.com"
+        },
+        {
+          "id": "10",
+          "comment": "Verifica se a especialidade do veterinário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "Cardiologia"
+        },
+        {
+          "id": "11",
+          "comment": "Verifica se o salário do veterinário está presente na tabela",
+          "command": "assertText",
+          "target": "css=.table.table-light",
+          "value": "1000"
+        },
+        {
+          "id": "12",
+          "comment": "Clica no botão de exclusão do veterinário",
+          "command": "click",
+          "target": "xpath=//tr/td[span[contains(text(),'Dr. John Doe')]]/following-sibling::td/child::a[2]"
+        },
+        {
+          "id": "13",
+          "comment": "Verifica se o nome do veterinário foi removido da tabela",
+          "command": "open",
+          "target": "/home"
+        },
+        {
+          "id": "14",
+          "comment": "Verifica se o nome foi excluído da tabela",
+          "command": "assertNotText",
+          "target": "css=.table.table-light",
+          "value": "Dr. John Doe"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-id",
+      "name": "Suite de Teste Exclusão Veterinário",
+      "tests": [
+        "test-excluir-veterinario"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:8080"
+  ],
+  "plugins": []
+}
